@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head></h:head> 
+<body> 
+
+<h:form>
+
+<h:inputHidden value="#{productController.productId}" converter="javax.faces.Long" />
+<table>
+
+<tr>
+<td>Category</td>
+<td> <h:selectOneMenu value="#{productController.categoryId}">
+		<f:selectItems var="c" value="#{productController.categories}" itemValue="#{c.id}" itemLabel="#{c.name}"/>
+</h:selectOneMenu>
+</td>
+</tr>
+
+<tr>
+<td>name</td>
+<td><h:inputText value="#{productController.name}" /></td>
+</tr>
+
+<tr>
+<td>price</td>
+<td><h:inputText value="#{productController.price}" /></td>
+</tr>
+
+<tr>
+<td>stock</td>
+<td> <h:inputText value="#{productController.stock}" /></td>
+</tr>
+
+<tr>
+<td>description</td>
+<td><h:inputText value="#{productController.description}" /></td>
+</tr>
+
+<tr>
+<td>Supplier</td>
+<td> <h:selectOneMenu value="#{productController.supplierId}">
+	<f:selectItems var="s" value="#{productController.suppliers}" itemValue="#{s.id}" itemLabel="#{s.name}"/>
+
+</h:selectOneMenu></td>
+</tr>
+</table>
+<tr>
+<td><h:commandButton action="#{productController.save}" value="Kirim" /></td>
+</tr>
+
+
+
+</h:form>
+</body> 
+</html>
